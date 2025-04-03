@@ -12,6 +12,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.shop.appshoplist.data.model.Product;
 import com.shop.appshoplist.data.repository.IProductRepository;
 import com.shop.appshoplist.data.repository.InMemoryProductRepository;
 
@@ -19,6 +20,7 @@ public class AddProduct extends AppCompatActivity {
     private EditText edtProductName;
     private EditText edtProductPrice;
     private Button btnAgregar;
+    private Button btnCancelar;
     private IProductRepository iProductRepository;
     private Intent getBack;
 
@@ -36,6 +38,9 @@ public class AddProduct extends AppCompatActivity {
     }
     private void init(){
         this.btnAgregar = findViewById(R.id.btnAgregar);
+        this.edtProductName = findViewById(R.id.edtAgregarNombre);
+        this.edtProductPrice = findViewById(R.id.edtAgregarPrecio);
+        this.btnCancelar = findViewById(R.id.btnRegresar);
         this.iProductRepository = new InMemoryProductRepository();
         this.getBack = new Intent(this,MainActivity.class);
     }
@@ -44,10 +49,19 @@ public class AddProduct extends AppCompatActivity {
         init();
         getBackToMainScreen();
 
+        Product product = new Product();
 
+        this.btnAgregar.setOnClickListener(v->{
+            product.setName(String.valueOf(this.edtProductName.getText()));
+            product.setPrice(Double.parseDouble(String.valueOf(this.edtProductPrice)));
+            product.setChecked(false);
+
+            iProductRepository.addProduct(product);
+            startActivity(this.getBack);
+        });
     }
 
     public void getBackToMainScreen(){
-
+        this.btnCancelar.setOnClickListener(v -> startActivity(this.getBack));
     }
 }
