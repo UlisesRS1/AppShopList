@@ -24,6 +24,45 @@
             android:id="@+id/ltvListaDeProductosNoSeleccionados"
             android:layout_width="match_parent"
             android:layout_height="515dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtValoresNoChecados"
+                android:layout_width="50dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="44dp"
+                android:text="0.00"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline20"
+                app:layout_constraintStart_toStartOf="@+id/guideline21"
+                app:layout_constraintTop_toTopOf="@+id/guideline19"
+                app:layout_constraintVertical_bias="0.656" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="16dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="76dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="166dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
 
     <androidx.constraintlayout.widget.Guideline
@@ -57,19 +96,6 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline17"
         app:layout_constraintEnd_toStartOf="@+id/guideline18"
         app:layout_constraintTop_toTopOf="@+id/guideline16" />
-
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="67dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="44dp"
-        android:ems="10"
-        android:hint="0.00"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/guideline17"
-        app:layout_constraintStart_toStartOf="@+id/guideline18"
-        app:layout_constraintTop_toTopOf="@+id/guideline16"
-        app:layout_constraintVertical_bias="0.823" />
 
     <TextView
         android:id="@+id/textView12"
