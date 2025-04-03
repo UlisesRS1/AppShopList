@@ -1,5 +1,6 @@
 package com.shop.appshoplist.utils;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 
 import com.shop.appshoplist.R;
 import com.shop.appshoplist.ScreenPurchased;
+import com.shop.appshoplist.UpdateProduct;
 import com.shop.appshoplist.data.model.Product;
 import com.shop.appshoplist.data.repository.IProductRepository;
 import com.shop.appshoplist.data.repository.InMemoryProductRepository;
@@ -70,20 +72,47 @@ public class ProductAdapter extends BaseAdapter {
             }
             viewHolder.iProductRepository.modifyProduct(position, product);
             Log.d("MiTag", this.products.get(position).toString());
-
         });
 
         // Estructura para la creación del evento de clic para nueva actividad
-        /*viewHolder.txtEditar.setOnClickListener(v -> {
-                Intent screenPurchased = new Intent(this.context, ScreenPurchased.class)
-                screenPurchased.putExtra("nombre", dataProduct.getName());
-                screenPurchased.putExtra("precio", dataProduct.getPrice());
+        viewHolder.txtEditar.setOnClickListener(v -> {
+                Intent screenUpdate = new Intent(this.context, UpdateProduct.class);
+                screenUpdate.putExtra("index", position);
+                this.context.startActivity(screenUpdate);
             }
-        );*/
+        );
+
+        viewHolder.txtEliminar.setOnClickListener(v ->{
+            mostrarDialogoConfirmacion(context, () -> {
+                Product product = products.get(position);
+                viewHolder.iProductRepository.deleteProduct(product);
+                notifyDataSetChanged();
+            });
+        });
 
 
         return convertView;
     }
+
+    private void mostrarDialogoConfirmacion(Context context, Runnable onConfirmar) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Confirmación");
+        builder.setMessage("¿Seguro que quieres eliminar este elemento?");
+
+        // Botón de Cancelar
+        builder.setNegativeButton("Cancelar", (dialog, which) -> {
+            dialog.dismiss(); // Cierra el diálogo sin hacer nada
+        });
+
+        // Botón de Borrar
+        builder.setPositiveButton("Borrar", (dialog, which) -> {
+            onConfirmar.run(); // Ejecuta la acción de borrado
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
     /**
      * Esta clase estatica es de gran utilidad para evitar sobrecarga de memoria.
      * Evita que se tenga que reasignar los elementos con su id, reduce la memoria usada
