@@ -29,19 +29,34 @@ public class ProductAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final View vista = ProductAdapter.inflater.inflate(R.layout.list_element, null);
+        ViewHolder viewHolder;
 
-        TextView txtNombreProducto = (TextView) vista.findViewById(R.id.txtNombreDelProducto);
-        CheckBox isChecked = (CheckBox) vista.findViewById(R.id.cbxChecado);
-        TextView txtPrecio = (TextView) vista.findViewById(R.id.textView7);
+        if (convertView == null) {
+            convertView = inflater.inflate(R.layout.list_element, parent, false);
+
+            viewHolder = new ViewHolder();
+            viewHolder.txtNombreProducto = convertView.findViewById(R.id.txtNombreDelProducto);
+            viewHolder.isChecked = convertView.findViewById(R.id.cbxChecado);
+            viewHolder.txtPrecio = convertView.findViewById(R.id.textView7);
+
+            convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
+        }
 
         Product dataProduct = products.get(position);
 
-        txtNombreProducto.setText(dataProduct.getName());
-        isChecked.setChecked(dataProduct.isChecked());
-        txtPrecio.setText(String.valueOf(dataProduct.getPrice()));
+        viewHolder.txtNombreProducto.setText(dataProduct.getName());
+        viewHolder.isChecked.setChecked(dataProduct.isChecked());
+        viewHolder.txtPrecio.setText(String.valueOf(dataProduct.getPrice()));
 
-        return vista;
+        return convertView;
+    }
+
+    static class ViewHolder {
+        TextView txtNombreProducto;
+        CheckBox isChecked;
+        TextView txtPrecio;
     }
 
     @Override
