@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateProduct">
+    tools:context=".AddProduct">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,9 +26,9 @@
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="322dp"
-                android:layout_height="29dp"
-                android:text="Nuevo nombre del producto"
+                android:layout_width="205dp"
+                android:layout_height="26dp"
+                android:text="Nombre del producto"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/guideline23"
                 app:layout_constraintEnd_toStartOf="@+id/guideline28"
@@ -76,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_begin="30dp" />
+                app:layout_constraintGuide_begin="40dp" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline28"
@@ -96,7 +96,7 @@
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nuevo precio"
+                android:text="Precio"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/guideline25"
                 app:layout_constraintEnd_toStartOf="@+id/guideline28"
@@ -109,7 +109,7 @@
                 android:id="@+id/btnModificar"
                 android:layout_width="329dp"
                 android:layout_height="54dp"
-                android:text="Modificar"
+                android:text="Agregar"
                 app:layout_constraintBottom_toTopOf="@+id/guideline29"
                 app:layout_constraintEnd_toStartOf="@+id/guideline28"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -119,8 +119,8 @@
 
             <EditText
                 android:id="@+id/edtModificarProducto"
-                android:layout_width="342dp"
-                android:layout_height="51dp"
+                android:layout_width="329dp"
+                android:layout_height="54dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:hint="Ingresa nombre del producto"
@@ -134,8 +134,8 @@
 
             <EditText
                 android:id="@+id/edtndModificarValor"
-                android:layout_width="328dp"
-                android:layout_height="50dp"
+                android:layout_width="316dp"
+                android:layout_height="54dp"
                 android:ems="10"
                 android:hint="0.00"
                 android:inputType="numberDecimal"
@@ -158,25 +158,6 @@
                 app:layout_constraintStart_toStartOf="@+id/guideline27"
                 app:layout_constraintTop_toTopOf="@+id/guideline25"
                 app:layout_constraintVertical_bias="0.347" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline30"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_begin="500dp" />
-
-            <Button
-                android:id="@+id/btnCancelar"
-                android:layout_width="328dp"
-                android:layout_height="54dp"
-                android:text="Cancelar"
-                app:layout_constraintBottom_toTopOf="@+id/guideline30"
-                app:layout_constraintEnd_toStartOf="@+id/guideline28"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/guideline27"
-                app:layout_constraintTop_toTopOf="@+id/guideline29"
-                app:layout_constraintVertical_bias="1.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
