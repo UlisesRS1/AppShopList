@@ -1,6 +1,7 @@
 package com.shop.appshoplist;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -45,9 +46,9 @@ public class MainActivity extends AppCompatActivity {
         init();
         IProductRepository iProductRepository = new InMemoryProductRepository();
         this.products = iProductRepository.getAllProducts();
-        iProductRepository.addProduct(new Product("perro mojao, 120g", 120.99));
+        iProductRepository.addProduct(new Product("Perro mojao, 120g", 120.99));
 
-        this.shopList.setAdapter(new ProductAdapter(this, products));
+        this.shopList.setAdapter(new ProductAdapter(this, this.products));
     }
 
 }

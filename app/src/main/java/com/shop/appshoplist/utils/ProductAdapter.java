@@ -2,6 +2,7 @@ package com.shop.appshoplist.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,8 @@ public class ProductAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.list_element, parent, false);
 
             viewHolder = new ViewHolder();
+            viewHolder.iProductRepository = new InMemoryProductRepository();
+
             viewHolder.txtNombreProducto = convertView.findViewById(R.id.txtNombreDelProducto);
             viewHolder.isChecked = convertView.findViewById(R.id.cbxChecado);
             viewHolder.txtPrecio = convertView.findViewById(R.id.textView7);
@@ -55,6 +58,20 @@ public class ProductAdapter extends BaseAdapter {
         viewHolder.txtNombreProducto.setText(dataProduct.getName());
         viewHolder.isChecked.setChecked(dataProduct.isChecked());
         viewHolder.txtPrecio.setText(String.valueOf(dataProduct.getPrice()));
+
+        viewHolder.isChecked.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            Product product;
+            if (isChecked) {
+                product = products.get(position);
+                product.setChecked(true);
+            } else {
+                product = products.get(position);
+                product.setChecked(false);
+            }
+            viewHolder.iProductRepository.modifyProduct(position, product);
+            Log.d("MiTag", this.products.get(position).toString());
+
+        });
 
         // Estructura para la creación del evento de clic para nueva actividad
         /*viewHolder.txtEditar.setOnClickListener(v -> {
@@ -77,6 +94,7 @@ public class ProductAdapter extends BaseAdapter {
         TextView txtPrecio;
         TextView txtEditar;
         TextView txtEliminar;
+        IProductRepository iProductRepository;
     }
 
     @Override
