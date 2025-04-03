@@ -66,11 +66,15 @@ public class UpdateProduct extends AppCompatActivity {
 
             iProductRepository.modifyProduct(index, newProduct);
             startActivity(this.getBack);
+            finish();
         });
     }
 
     public void getBackToMainScreen(){
-        this.btnCancelar.setOnClickListener(v -> startActivity(this.getBack));
+        this.btnCancelar.setOnClickListener(v -> {
+            startActivity(this.getBack);
+            finish();
+        });
     }
 
 }

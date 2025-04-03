@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     public void getToAddProductScreen(){
         this.fbtnAgregarProducto.setOnClickListener(v->{
             startActivity(this.getToAddProduct);
+            finish();
         });
     }
 

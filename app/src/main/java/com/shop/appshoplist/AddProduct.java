@@ -21,7 +21,6 @@ public class AddProduct extends AppCompatActivity {
     private EditText edtProductPrice;
     private Button btnAgregar;
     private Button btnCancelar;
-    private IProductRepository iProductRepository;
     private Intent getBack;
 
     @Override
@@ -41,7 +40,7 @@ public class AddProduct extends AppCompatActivity {
         this.edtProductName = findViewById(R.id.edtAgregarNombre);
         this.edtProductPrice = findViewById(R.id.edtAgregarPrecio);
         this.btnCancelar = findViewById(R.id.btnRegresar);
-        this.iProductRepository = new InMemoryProductRepository();
+
         this.getBack = new Intent(this,MainActivity.class);
     }
 
@@ -49,19 +48,24 @@ public class AddProduct extends AppCompatActivity {
         init();
         getBackToMainScreen();
 
+        IProductRepository iProductRepository = new InMemoryProductRepository();
         Product product = new Product();
 
         this.btnAgregar.setOnClickListener(v->{
             product.setName(String.valueOf(this.edtProductName.getText()));
-            product.setPrice(Double.parseDouble(String.valueOf(this.edtProductPrice)));
+            product.setPrice(Double.parseDouble(String.valueOf(this.edtProductPrice.getText())));
             product.setChecked(false);
 
             iProductRepository.addProduct(product);
             startActivity(this.getBack);
+            finish();
         });
     }
 
     public void getBackToMainScreen(){
-        this.btnCancelar.setOnClickListener(v -> startActivity(this.getBack));
+        this.btnCancelar.setOnClickListener(v -> {
+            startActivity(this.getBack);
+            finish();
+        });
     }
 }

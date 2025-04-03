@@ -1,5 +1,6 @@
 package com.shop.appshoplist.utils;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -79,6 +80,9 @@ public class ProductAdapter extends BaseAdapter {
                 Intent screenUpdate = new Intent(this.context, UpdateProduct.class);
                 screenUpdate.putExtra("index", position);
                 this.context.startActivity(screenUpdate);
+                if (context instanceof Activity) {
+                    ((Activity) context).finish();
+                }
             }
         );
 
