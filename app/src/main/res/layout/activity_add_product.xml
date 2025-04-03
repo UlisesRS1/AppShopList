@@ -115,35 +115,6 @@
                 app:layout_constraintTop_toTopOf="@+id/guideline24"
                 app:layout_constraintVertical_bias="0.478" />
 
-            <EditText
-                android:id="@+id/edtModificarProducto"
-                android:layout_width="329dp"
-                android:layout_height="54dp"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:hint="Ingresa nombre del producto"
-                android:inputType="text"
-                app:layout_constraintBottom_toTopOf="@+id/guideline24"
-                app:layout_constraintEnd_toStartOf="@+id/guideline28"
-                app:layout_constraintHorizontal_bias="0.02"
-                app:layout_constraintStart_toStartOf="@+id/guideline27"
-                app:layout_constraintTop_toTopOf="@+id/guideline23"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <EditText
-                android:id="@+id/edtndModificarValor"
-                android:layout_width="316dp"
-                android:layout_height="54dp"
-                android:ems="10"
-                android:hint="0.00"
-                android:inputType="numberDecimal"
-                app:layout_constraintBottom_toTopOf="@+id/guideline26"
-                app:layout_constraintEnd_toStartOf="@+id/guideline28"
-                app:layout_constraintHorizontal_bias="0.968"
-                app:layout_constraintStart_toStartOf="@+id/guideline27"
-                app:layout_constraintTop_toTopOf="@+id/guideline25"
-                app:layout_constraintVertical_bias="1.0" />
-
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
@@ -156,6 +127,48 @@
                 app:layout_constraintStart_toStartOf="@+id/guideline27"
                 app:layout_constraintTop_toTopOf="@+id/guideline25"
                 app:layout_constraintVertical_bias="0.347" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="500dp" />
+
+            <EditText
+                android:id="@+id/edtAgregarNombre"
+                android:layout_width="338dp"
+                android:layout_height="48dp"
+                android:ems="10"
+                android:hint="Ingresa nombre de producto"
+                android:inputType="text"
+                app:layout_constraintBottom_toTopOf="@+id/guideline24"
+                app:layout_constraintEnd_toStartOf="@+id/guideline28"
+                app:layout_constraintStart_toStartOf="@+id/guideline27"
+                app:layout_constraintTop_toTopOf="@+id/guideline23" />
+
+            <EditText
+                android:id="@+id/edtAgregarPrecio"
+                android:layout_width="325dp"
+                android:layout_height="51dp"
+                android:ems="10"
+                android:hint="0.00"
+                android:inputType="number"
+                app:layout_constraintBottom_toTopOf="@+id/guideline26"
+                app:layout_constraintEnd_toStartOf="@+id/guideline28"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline27"
+                app:layout_constraintTop_toTopOf="@+id/guideline25"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/btnRegresar"
+                android:layout_width="329dp"
+                android:layout_height="54dp"
+                android:text="Cancelar"
+                app:layout_constraintEnd_toStartOf="@+id/guideline28"
+                app:layout_constraintStart_toStartOf="@+id/guideline27"
+                app:layout_constraintTop_toTopOf="@+id/guideline29" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
