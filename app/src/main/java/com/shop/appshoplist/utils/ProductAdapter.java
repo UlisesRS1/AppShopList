@@ -38,6 +38,8 @@ public class ProductAdapter extends BaseAdapter {
             viewHolder.txtNombreProducto = convertView.findViewById(R.id.txtNombreDelProducto);
             viewHolder.isChecked = convertView.findViewById(R.id.cbxChecado);
             viewHolder.txtPrecio = convertView.findViewById(R.id.textView7);
+            viewHolder.txtEditar = convertView.findViewById(R.id.txtEditar);
+            viewHolder.txtEliminar = convertView.findViewById(R.id.txtEliminar);
 
             convertView.setTag(viewHolder);
         } else {
@@ -49,6 +51,7 @@ public class ProductAdapter extends BaseAdapter {
         viewHolder.txtNombreProducto.setText(dataProduct.getName());
         viewHolder.isChecked.setChecked(dataProduct.isChecked());
         viewHolder.txtPrecio.setText(String.valueOf(dataProduct.getPrice()));
+        
 
         return convertView;
     }
@@ -57,6 +60,8 @@ public class ProductAdapter extends BaseAdapter {
         TextView txtNombreProducto;
         CheckBox isChecked;
         TextView txtPrecio;
+        TextView txtEditar;
+        TextView txtEliminar;
     }
 
     @Override
