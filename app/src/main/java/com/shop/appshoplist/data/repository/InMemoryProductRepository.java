@@ -28,13 +28,12 @@ public class InMemoryProductRepository implements IProductRepository{
     }
 
     @Override
-    public boolean modifyProduct(Product product) {
-        var index = products.indexOf(product);
+    public boolean modifyProduct(int index, Product product) {
+        if (index < 0 || index > (products.size() - 1)) {
+            return false;
+        }
 
-        if (index == -1) return false;
-
-        var newProduct = new Product(product);
-        products.set(index, newProduct);
+        products.set(index, product);
 
         return true;
     }

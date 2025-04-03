@@ -7,6 +7,6 @@ import java.util.List;
 public interface IProductRepository {
     List<Product> getAllProducts();
     boolean addProduct(Product product);
-    boolean modifyProduct(Product product);
+    boolean modifyProduct(int index, Product product);
     boolean deleteProduct(Product product);
 }
