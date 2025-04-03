@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.shop.appshoplist.data.repository.IProductRepository;
+import com.shop.appshoplist.data.repository.InMemoryProductRepository;
 
 public class AddProduct extends AppCompatActivity {
     private EditText edtProductName;
@@ -31,6 +32,22 @@ public class AddProduct extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        addProduct();
+    }
+    private void init(){
+        this.btnAgregar = findViewById(R.id.btnAgregar);
+        this.iProductRepository = new InMemoryProductRepository();
+        this.getBack = new Intent(this,MainActivity.class);
+    }
+
+    public void addProduct(){
+        init();
+        getBackToMainScreen();
+
+
+    }
+
+    public void getBackToMainScreen(){
 
     }
 }

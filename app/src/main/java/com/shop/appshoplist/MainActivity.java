@@ -1,8 +1,7 @@
 package com.shop.appshoplist;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -12,6 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.shop.appshoplist.data.model.Product;
 import com.shop.appshoplist.data.repository.IProductRepository;
 import com.shop.appshoplist.data.repository.InMemoryProductRepository;
@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private ListView shopList;
     private List<Product> products;
     private TextView total;
+    private FloatingActionButton fbtnAgregarProducto;
+    private Intent getToAddProduct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +42,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void init(){
         this.shopList = findViewById(R.id.ltvListaDeProductos);
+        this.fbtnAgregarProducto = findViewById(R.id.fbtnAgregarProducto);
+        this.getToAddProduct = new Intent(this, AddProduct.class);
+    }
+
+    public void getToAddProductScreen(){
+        this.fbtnAgregarProducto.setOnClickListener(v->{
+            startActivity(this.getToAddProduct);
+        });
     }
 
     public void run(){
         init();
+        getToAddProductScreen();
         IProductRepository iProductRepository = new InMemoryProductRepository();
         this.products = iProductRepository.getAllProducts();
 
