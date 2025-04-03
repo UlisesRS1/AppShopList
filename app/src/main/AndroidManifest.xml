@@ -13,6 +13,18 @@
         android:theme="@style/Theme.AppShopList"
         tools:targetApi="31">
         <activity
+            android:name=".MainActivity4_screen_add_prodruct"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity2_update_product"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity3_screen_update_product"
+            android:exported="false" />
+        <activity
+            android:name=".utils.Main3Activity_screen_update_product"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity2_screen_didnt_purchased"
             android:exported="false" />
         <activity
