@@ -1,6 +1,7 @@
 package com.shop.appshoplist;
 
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
@@ -19,6 +20,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private ListView shopList;
+    private List<Product> products;
+    private EditText total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +38,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void init(){
         this.shopList = findViewById(R.id.ltvListaDeProductos);
+        this.total = findViewById(R.id.edtValor);
     }
 
     public void run(){
         init();
         IProductRepository iProductRepository = new InMemoryProductRepository();
-        List<Product> products = iProductRepository.getAllProducts();
+        this.products = iProductRepository.getAllProducts();
+        iProductRepository.addProduct(new Product("perro mojao, 120g", 120.99));
 
         this.shopList.setAdapter(new ProductAdapter(this, products));
     }
+
 }

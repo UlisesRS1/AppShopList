@@ -25,10 +25,10 @@
             android:name=".utils.Main3Activity_screen_update_product"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2_screen_didnt_purchased"
+            android:name=".ScreenDidntPurchased"
             android:exported="false" />
         <activity
-            android:name=".MainActivity_screen_purchased"
+            android:name=".ScreenPurchased"
             android:exported="false" />
         <activity
             android:name=".ScreenDidntPurchased"

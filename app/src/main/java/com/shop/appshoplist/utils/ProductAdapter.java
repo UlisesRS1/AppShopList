@@ -1,6 +1,7 @@
 package com.shop.appshoplist.utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.shop.appshoplist.R;
+import com.shop.appshoplist.ScreenPurchased;
 import com.shop.appshoplist.data.model.Product;
 import com.shop.appshoplist.data.repository.IProductRepository;
 import com.shop.appshoplist.data.repository.InMemoryProductRepository;
@@ -21,9 +23,11 @@ public class ProductAdapter extends BaseAdapter {
 
     private static LayoutInflater inflater;
     private final List<Product> products;
+    private final Context context;
 
     public ProductAdapter(Context context, List<Product> products){
         this.products = products;
+        this.context = context;
         ProductAdapter.inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -51,6 +55,14 @@ public class ProductAdapter extends BaseAdapter {
         viewHolder.txtNombreProducto.setText(dataProduct.getName());
         viewHolder.isChecked.setChecked(dataProduct.isChecked());
         viewHolder.txtPrecio.setText(String.valueOf(dataProduct.getPrice()));
+
+        // Estructura para la creación del evento de clic para nueva actividad
+        /*viewHolder.txtEditar.setOnClickListener(v -> {
+                Intent screenPurchased = new Intent(this.context, ScreenPurchased.class)
+                screenPurchased.putExtra("nombre", dataProduct.getName());
+                screenPurchased.putExtra("precio", dataProduct.getPrice());
+            }
+        );*/
 
 
         return convertView;
