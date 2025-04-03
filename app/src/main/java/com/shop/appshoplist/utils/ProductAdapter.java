@@ -51,11 +51,14 @@ public class ProductAdapter extends BaseAdapter {
         viewHolder.txtNombreProducto.setText(dataProduct.getName());
         viewHolder.isChecked.setChecked(dataProduct.isChecked());
         viewHolder.txtPrecio.setText(String.valueOf(dataProduct.getPrice()));
-        
+
 
         return convertView;
     }
-
+    /**
+     * Esta clase estatica es de gran utilidad para evitar sobrecarga de memoria.
+     * Evita que se tenga que reasignar los elementos con su id, reduce la memoria usada
+     * */
     static class ViewHolder {
         TextView txtNombreProducto;
         CheckBox isChecked;
