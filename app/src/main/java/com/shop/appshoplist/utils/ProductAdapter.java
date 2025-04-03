@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.TextView;
 
 import com.shop.appshoplist.R;
 import com.shop.appshoplist.data.model.Product;
@@ -29,9 +31,17 @@ public class ProductAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         final View vista = ProductAdapter.inflater.inflate(R.layout.list_element, null);
 
+        TextView txtNombreProducto = (TextView) vista.findViewById(R.id.txtNombreDelProducto);
+        CheckBox isChecked = (CheckBox) vista.findViewById(R.id.cbxChecado);
+        TextView txtPrecio = (TextView) vista.findViewById(R.id.textView7);
 
+        Product dataProduct = products.get(position);
 
-        return null;
+        txtNombreProducto.setText(dataProduct.getName());
+        isChecked.setChecked(dataProduct.isChecked());
+        txtPrecio.setText(String.valueOf(dataProduct.getPrice()));
+
+        return vista;
     }
 
     @Override
