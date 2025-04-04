@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="false"
     tools:context=".ScreenPurchased">
 
     <LinearLayout
@@ -36,7 +37,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/txtPrecioCheck"
         android:layout_width="60dp"
         android:layout_height="30dp"
         android:text="Total"
@@ -51,6 +52,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:ems="10"
+        android:focusable="false"
         android:hint="0.00"
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/guideline10"

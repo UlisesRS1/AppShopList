@@ -2,6 +2,7 @@ package com.shop.appshoplist;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -26,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView total;
     private FloatingActionButton fbtnAgregarProducto;
     private Intent getToAddProduct;
+    private Button btnConfirmar;
+    private Intent getToPurchased;
+    private TextView txtTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +47,10 @@ public class MainActivity extends AppCompatActivity {
     public void init(){
         this.shopList = findViewById(R.id.ltvListaDeProductos);
         this.fbtnAgregarProducto = findViewById(R.id.fbtnAgregarProducto);
+        this.btnConfirmar = findViewById(R.id.btnConfirmarCompra);
+        this.txtTotal = findViewById(R.id.txtValor);
         this.getToAddProduct = new Intent(this, AddProduct.class);
+        this.getToPurchased = new Intent(this, ScreenPurchased.class);
     }
 
     public void getToAddProductScreen(){
@@ -53,11 +60,32 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void getToPurchased(){
+        this.btnConfirmar.setOnClickListener(v->{
+            startActivity(this.getToPurchased);
+            finish();
+        });
+    }
+
+    private void calculateAndSetTotal(){
+        double total = 0;
+        for (Product product: this.products){
+            total += product.getPrice() * product.getQuantity();
+        }
+        total = Math.floor(total * 100) /100;
+        this.txtTotal.setText(String.valueOf(total));
+    }
+
     public void run(){
         init();
-        getToAddProductScreen();
+
         IProductRepository iProductRepository = new InMemoryProductRepository();
         this.products = iProductRepository.getAllProducts();
+
+        getToAddProductScreen();
+        getToPurchased();
+
+        calculateAndSetTotal();
 
         this.shopList.setAdapter(new ProductAdapter(this, this.products));
     }

@@ -15,6 +15,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.shop.appshoplist.MainActivity;
 import com.shop.appshoplist.R;
 import com.shop.appshoplist.UpdateProduct;
 import com.shop.appshoplist.data.model.Product;
@@ -45,9 +46,9 @@ public class ProductAdapter extends BaseAdapter {
             viewHolder = new ViewHolder();
             viewHolder.iProductRepository = new InMemoryProductRepository();
 
-            viewHolder.txtNombreProducto = convertView.findViewById(R.id.txtNombreDelProducto);
+            viewHolder.txtNombreProducto = convertView.findViewById(R.id.txtNombreDelProductoCheck);
             viewHolder.isChecked = convertView.findViewById(R.id.cbxChecado);
-            viewHolder.txtPrecio = convertView.findViewById(R.id.textView7);
+            viewHolder.txtPrecio = convertView.findViewById(R.id.txtPrecioCheck);
             viewHolder.txtEditar = convertView.findViewById(R.id.txtEditar);
             viewHolder.txtEliminar = convertView.findViewById(R.id.txtEliminar);
             viewHolder.edtCantidad = convertView.findViewById(R.id.edtCantidadProducto);

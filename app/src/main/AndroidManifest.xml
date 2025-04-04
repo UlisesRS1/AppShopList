@@ -19,38 +19,14 @@
             android:name=".UpdateProduct"
             android:exported="false" />
         <activity
-            android:name=".MainActivity3_update_product"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity4_screen_add_prodruct"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity2_update_product"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity3_screen_update_product"
-            android:exported="false" />
-        <activity
-            android:name=".utils.Main3Activity_screen_update_product"
-            android:exported="false" />
-        <activity
             android:name=".ScreenDidntPurchased"
             android:exported="false" />
-        <activity
-            android:name=".ScreenDidntPurchased"
-            android:exported="false" />
-        <activity
-            android:name=".ScreenPurchased"
-            android:exported="false" />
-        <activity
-            android:name=".screen_update_product"
-            android:exported="false" />
-        <activity
-            android:name=".screen_didnt_purchased"
-            android:exported="false" />
-        <activity
-            android:name=".screen_purchased"
-            android:exported="false" />
+        <activity android:name=".ScreenPurchased" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
