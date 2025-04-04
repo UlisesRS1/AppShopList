@@ -11,14 +11,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="27dp" />
+        app:layout_constraintGuide_begin="16dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="121dp" />
+        app:layout_constraintGuide_begin="107dp" />
 
     <CheckBox
         android:id="@+id/cbxChecado"
@@ -46,7 +46,7 @@
         android:id="@+id/txtEditar"
         android:layout_width="70dp"
         android:layout_height="34dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="56dp"
         android:text="Editar"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
@@ -58,7 +58,7 @@
         android:id="@+id/txtEliminar"
         android:layout_width="95dp"
         android:layout_height="34dp"
-        android:layout_marginStart="76dp"
+        android:layout_marginStart="180dp"
         android:text="Eliminar"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
@@ -69,8 +69,8 @@
     <EditText
         android:id="@+id/edtCantidadProducto"
         android:layout_width="49dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="228dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="216dp"
         android:ems="10"
         android:focusable="auto"
         android:hint="0"
@@ -78,7 +78,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.697" />
 
     <TextView
         android:id="@+id/txtPrecioCheck"
@@ -121,14 +121,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="155dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="1dp" />
+        app:layout_constraintGuide_begin="141dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline9"
