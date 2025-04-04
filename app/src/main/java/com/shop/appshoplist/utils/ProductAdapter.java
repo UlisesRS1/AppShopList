@@ -4,23 +4,23 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.shop.appshoplist.R;
-import com.shop.appshoplist.ScreenPurchased;
 import com.shop.appshoplist.UpdateProduct;
 import com.shop.appshoplist.data.model.Product;
 import com.shop.appshoplist.data.repository.IProductRepository;
 import com.shop.appshoplist.data.repository.InMemoryProductRepository;
 
-import java.security.PublicKey;
 import java.util.List;
 
 public class ProductAdapter extends BaseAdapter {
@@ -50,6 +50,7 @@ public class ProductAdapter extends BaseAdapter {
             viewHolder.txtPrecio = convertView.findViewById(R.id.textView7);
             viewHolder.txtEditar = convertView.findViewById(R.id.txtEditar);
             viewHolder.txtEliminar = convertView.findViewById(R.id.txtEliminar);
+            viewHolder.edtCantidad = convertView.findViewById(R.id.edtCantidadProducto);
 
             convertView.setTag(viewHolder);
         } else {
@@ -61,7 +62,11 @@ public class ProductAdapter extends BaseAdapter {
         viewHolder.txtNombreProducto.setText(dataProduct.getName());
         viewHolder.isChecked.setChecked(dataProduct.isChecked());
         viewHolder.txtPrecio.setText(String.valueOf(dataProduct.getPrice()));
+        viewHolder.edtCantidad.setText(String.valueOf(dataProduct.getQuantity()));
 
+        /**
+         * Es fundamental para saber si esta comprado o no el producto
+         * */
         viewHolder.isChecked.setOnCheckedChangeListener((buttonView, isChecked) -> {
             Product product;
             if (isChecked) {
@@ -72,10 +77,11 @@ public class ProductAdapter extends BaseAdapter {
                 product.setChecked(false);
             }
             viewHolder.iProductRepository.modifyProduct(position, product);
-            Log.d("MiTag", this.products.get(position).toString());
         });
 
-        // Estructura para la creación del evento de clic para nueva actividad
+        /**
+         * Boton de editar, redirecciona a la pantalla de editar
+         * */
         viewHolder.txtEditar.setOnClickListener(v -> {
                 Intent screenUpdate = new Intent(this.context, UpdateProduct.class);
                 screenUpdate.putExtra("index", position);
@@ -86,6 +92,9 @@ public class ProductAdapter extends BaseAdapter {
             }
         );
 
+        /**
+         * Manejo de la eliminacion de un elemento
+         * */
         viewHolder.txtEliminar.setOnClickListener(v ->{
             mostrarDialogoConfirmacion(context, () -> {
                 Product product = products.get(position);
@@ -94,7 +103,45 @@ public class ProductAdapter extends BaseAdapter {
             });
         });
 
+        /**
+         * Manejo del cambio del numero
+         * */
+         viewHolder.edtCantidad.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            /**
+             * Se ejecuta cuando se cambia el texto del EditText
+             * */
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!s.toString().isEmpty()) {
+                    Product product = products.get(position);
+                    product.setQuantity(Integer.parseInt(String.valueOf(viewHolder.edtCantidad.getText())));
+                    viewHolder.iProductRepository.modifyProduct(position, product);
+                }
+            }
+        });
+
+        viewHolder.edtCantidad.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                if (viewHolder.edtCantidad.getText().toString().isEmpty()) {
+                    Product product = products.get(position);
+                    product.setQuantity(1);
+                    viewHolder.edtCantidad.setText("1");
+                    viewHolder.iProductRepository.modifyProduct(position, product);
+                }
+            }
+        });
+
+        Log.d("Debug", products.get(position).toString());
         return convertView;
     }
 
@@ -127,6 +174,7 @@ public class ProductAdapter extends BaseAdapter {
         TextView txtPrecio;
         TextView txtEditar;
         TextView txtEliminar;
+        EditText edtCantidad;
         IProductRepository iProductRepository;
     }
 

@@ -6,6 +6,7 @@ public class Product {
     private String name;
     private double price;
     private boolean checked;
+    private int quantity;
 
     public Product() {
 
@@ -21,6 +22,14 @@ public class Product {
         this.name = name;
         this.price = price;
         this.checked = false;
+        this.quantity = 1;
+    }
+
+    public Product(String name, double price, int cantidad) {
+        this.name = name;
+        this.price = price;
+        this.checked = false;
+        this.quantity = cantidad;
     }
 
     public Product(String name, double price, boolean checked) {
@@ -53,6 +62,14 @@ public class Product {
         this.checked = checked;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -72,6 +89,7 @@ public class Product {
                 "name='" + name + '\'' +
                 ", price=" + price +
                 ", checked=" + checked +
+                ", cantidad=" + quantity +
                 '}';
     }
 }
