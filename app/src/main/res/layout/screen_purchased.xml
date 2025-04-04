@@ -42,7 +42,7 @@
                 app:layout_constraintTop_toTopOf="@+id/guideline32" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/txtValorComprados"
                 android:layout_width="49dp"
                 android:layout_height="29dp"
                 android:layout_marginStart="32dp"
