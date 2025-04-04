@@ -54,23 +54,27 @@
 
     <TextView
         android:id="@+id/txtEditar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_width="70dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="4dp"
         android:text="Editar"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
-        app:layout_constraintTop_toTopOf="@+id/guideline7" />
+        app:layout_constraintTop_toTopOf="@+id/guideline7"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/txtEliminar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
+        android:layout_width="95dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="76dp"
         android:text="Eliminar"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
-        app:layout_constraintTop_toTopOf="@+id/guideline7" />
+        app:layout_constraintTop_toTopOf="@+id/guideline7"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/edtCantidadProducto"
