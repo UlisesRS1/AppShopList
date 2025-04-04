@@ -3,8 +3,8 @@ package com.shop.appshoplist;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,7 +23,7 @@ import java.util.List;
 public class ScreenPurchased extends AppCompatActivity {
 
     private ListView purchasedList;
-    private EditText edtTotal;
+    private TextView txtTotal;
     private Button btnNotPurchased;
     private Button btnRegresar;
     private List<Product> products;
@@ -45,8 +45,9 @@ public class ScreenPurchased extends AppCompatActivity {
 
     private void init(){
         this.purchasedList = findViewById(R.id.ltvListaDeProductosChecados);
-        this.edtTotal = findViewById(R.id.txtValorComprados);
+        this.txtTotal = findViewById(R.id.txtValorComprados);
         this.btnNotPurchased = findViewById(R.id.btnVerNoComprados);
+        this.btnRegresar = findViewById(R.id.btnVolverAtras);
         this.getBack = new Intent(this, MainActivity.class);
         this.getToNotPurchased = new Intent(this, ScreenDidntPurchased.class);
     }
@@ -57,7 +58,7 @@ public class ScreenPurchased extends AppCompatActivity {
             total += product.getPrice() * product.getQuantity();
         }
         total = Math.floor(total * 100) /100;
-        this.edtTotal.setText(String.valueOf(total));
+        this.txtTotal.setText(String.valueOf(total));
     }
 
     private List<Product> getAllProductPurchased(){
@@ -81,6 +82,13 @@ public class ScreenPurchased extends AppCompatActivity {
         });
     }
 
+    private void getToMainScreen(){
+        this.btnRegresar.setOnClickListener(v->{
+            startActivity(this.getBack);
+            finish();
+        });
+    }
+
     public void run(){
         init();
         this.products = getAllProductPurchased();
@@ -88,5 +96,6 @@ public class ScreenPurchased extends AppCompatActivity {
         this.purchasedList.setAdapter(new ProductAdapterCheckList(this, this.products));
 
         getToNotPurchasedScreen();
+        getToMainScreen();
     }
 }

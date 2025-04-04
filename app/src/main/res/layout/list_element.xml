@@ -70,7 +70,7 @@
         android:id="@+id/edtCantidadProducto"
         android:layout_width="49dp"
         android:layout_height="39dp"
-        android:layout_marginStart="228dp"
+        android:layout_marginStart="216dp"
         android:ems="10"
         android:focusable="auto"
         android:hint="0"

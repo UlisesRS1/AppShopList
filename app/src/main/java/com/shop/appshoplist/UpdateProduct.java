@@ -15,6 +15,8 @@ import com.shop.appshoplist.data.model.Product;
 import com.shop.appshoplist.data.repository.IProductRepository;
 import com.shop.appshoplist.data.repository.InMemoryProductRepository;
 
+import java.util.List;
+
 public class UpdateProduct extends AppCompatActivity {
 
     private Button btnModificar;
@@ -51,12 +53,21 @@ public class UpdateProduct extends AppCompatActivity {
         this.getBack = new Intent(this, MainActivity.class);
     }
 
+    public void setTextInEditText(int index){
+        IProductRepository iProductRepository = new InMemoryProductRepository();
+        var products = iProductRepository.getAllProducts();
+
+        this.edtUpdateName.setText(products.get(index).getName());
+        this.edtupdatePrice.setText(String.valueOf(products.get(index).getPrice()));
+    }
+
     public void update(){
         init();
-
         int index = getIntent().getIntExtra("index", 0);
+        setTextInEditText(index);
 
         IProductRepository iProductRepository = new InMemoryProductRepository();
+
         Product newProduct = new Product();
 
         this.btnModificar.setOnClickListener(v -> {
