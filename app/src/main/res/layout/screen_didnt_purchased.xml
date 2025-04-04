@@ -62,19 +62,6 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_begin="166dp" />
 
-            <Button
-                android:id="@+id/btnInicio"
-                android:layout_width="392dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:text="Volver a inicio"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/guideline20"
-                app:layout_constraintVertical_bias="0.0" />
-
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline36"
                 android:layout_width="wrap_content"
@@ -137,4 +124,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnInicio"
+        android:layout_width="392dp"
+        android:layout_height="50dp"
+        android:text="Volver a inicio"
+        app:layout_constraintBottom_toTopOf="@+id/btnVerComprados"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline17" />
 </androidx.constraintlayout.widget.ConstraintLayout>
