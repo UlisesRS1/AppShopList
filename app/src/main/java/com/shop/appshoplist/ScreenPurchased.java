@@ -45,7 +45,7 @@ public class ScreenPurchased extends AppCompatActivity {
 
     private void init(){
         this.purchasedList = findViewById(R.id.ltvListaDeProductosChecados);
-        this.edtTotal = findViewById(R.id.edtValorChecados);
+        this.edtTotal = findViewById(R.id.txtValorComprados);
         this.btnNotPurchased = findViewById(R.id.btnVerNoComprados);
         this.getBack = new Intent(this, MainActivity.class);
         this.getToNotPurchased = new Intent(this, ScreenDidntPurchased.class);

@@ -24,7 +24,7 @@ public class ScreenDidntPurchased extends AppCompatActivity {
 
     private ListView notPurchasedList;
     private TextView txtTotal;
-    private Button btnNotPurchased;
+    private Button btnPurchased;
     private Button btnRegresar;
     private List<Product> products;
     private Intent getBack;
@@ -45,6 +45,9 @@ public class ScreenDidntPurchased extends AppCompatActivity {
 
     private void init(){
         this.notPurchasedList = findViewById(R.id.ltvListaDeProductosNoSeleccionados);
+        this.btnRegresar = findViewById(R.id.btnInicio);
+        this.btnPurchased = findViewById(R.id.btnVerComprados);
+        this.txtTotal = findViewById(R.id.txtValoresNoChecados);
         this.getBack = new Intent(this, MainActivity.class);
         this.getToPurchased = new Intent(this, ScreenPurchased.class);
     }
@@ -80,7 +83,7 @@ public class ScreenDidntPurchased extends AppCompatActivity {
     }
 
     private void getToPurchasedScreen(){
-        this.btnNotPurchased.setOnClickListener(v -> {
+        this.btnPurchased.setOnClickListener(v -> {
             startActivity(this.getToPurchased);
             finish();
         });
