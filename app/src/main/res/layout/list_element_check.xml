@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="79dp" />
+        app:layout_constraintGuide_begin="93dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Producto"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline5"
@@ -35,12 +36,13 @@
         android:id="@+id/txtPrecioCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="192dp"
+        android:layout_marginStart="196dp"
         android:text="0.00"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:layout_constraintVertical_bias="0.47" />
+        app:layout_constraintVertical_bias="0.521" />
 
     <TextView
         android:id="@+id/textView3"
@@ -48,6 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="180dp"
         android:text="Precio"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline5"
@@ -58,16 +61,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="$"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/txtPrecioCheck"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <TextView
         android:id="@+id/txtNombreDelProductoCheck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="98dp"
+        android:layout_height="44dp"
         android:layout_marginStart="16dp"
         android:text="TextView"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline"
@@ -91,14 +96,12 @@
         android:id="@+id/txtCantidadProductoCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="96dp"
+        android:layout_marginStart="288dp"
         android:text="0"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <TextView
         android:id="@+id/textView4"
@@ -106,6 +109,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="264dp"
         android:text="Cantidad"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline5"
