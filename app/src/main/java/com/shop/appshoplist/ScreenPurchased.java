@@ -15,9 +15,9 @@ import androidx.core.view.WindowInsetsCompat;
 import com.shop.appshoplist.data.model.Product;
 import com.shop.appshoplist.data.repository.IProductRepository;
 import com.shop.appshoplist.data.repository.InMemoryProductRepository;
-import com.shop.appshoplist.utils.ProductAdapter;
 import com.shop.appshoplist.utils.ProductAdapterCheckList;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ScreenPurchased extends AppCompatActivity {
@@ -25,7 +25,10 @@ public class ScreenPurchased extends AppCompatActivity {
     private ListView purchasedList;
     private EditText edtTotal;
     private Button btnNotPurchased;
+    private Button btnRegresar;
     private List<Product> products;
+    private Intent getBack;
+    private Intent getToNotPurchased;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,9 @@ public class ScreenPurchased extends AppCompatActivity {
     private void init(){
         this.purchasedList = findViewById(R.id.ltvListaDeProductosChecados);
         this.edtTotal = findViewById(R.id.edtValorChecados);
+        this.btnNotPurchased = findViewById(R.id.btnVerNoComprados);
+        this.getBack = new Intent(this, MainActivity.class);
+        this.getToNotPurchased = new Intent(this, ScreenDidntPurchased.class);
     }
 
     private void calculateAndSetTotal(){
@@ -54,14 +60,33 @@ public class ScreenPurchased extends AppCompatActivity {
         this.edtTotal.setText(String.valueOf(total));
     }
 
+    private List<Product> getAllProductPurchased(){
+        IProductRepository iProductRepository = new InMemoryProductRepository();
+        List<Product> products = iProductRepository.getAllProducts();
+        List<Product> productPurchased = new ArrayList<>();
+
+        for (Product product : products) {
+            if (product.isChecked()) {
+                productPurchased.add(product);
+            }
+        }
+
+        return productPurchased;
+    }
+
+    private void getToNotPurchasedScreen(){
+        this.btnNotPurchased.setOnClickListener(v -> {
+            startActivity(this.getToNotPurchased);
+            finish();
+        });
+    }
+
     public void run(){
         init();
-
-        IProductRepository iProductRepository = new InMemoryProductRepository();
-        this.products = iProductRepository.getAllProducts();
-
+        this.products = getAllProductPurchased();
         calculateAndSetTotal();
-
         this.purchasedList.setAdapter(new ProductAdapterCheckList(this, this.products));
+
+        getToNotPurchasedScreen();
     }
 }
