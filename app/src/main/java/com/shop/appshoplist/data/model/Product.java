@@ -9,7 +9,10 @@ public class Product {
     private int quantity;
 
     public Product() {
-
+        this.name = "No name";
+        this.price = 0.0;
+        this.checked = false;
+        this.quantity = 1;
     }
 
     public Product(Product product) {

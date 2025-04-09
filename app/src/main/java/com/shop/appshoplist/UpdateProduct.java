@@ -76,6 +76,7 @@ public class UpdateProduct extends AppCompatActivity {
             newProduct.setChecked(false);
 
             iProductRepository.modifyProduct(index, newProduct);
+            MainActivity.calculateAndSetTotal(iProductRepository.getAllProducts());
             startActivity(this.getBack);
             finish();
         });
