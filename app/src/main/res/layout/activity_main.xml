@@ -38,26 +38,24 @@
                 android:id="@+id/txtValor"
                 android:layout_width="51dp"
                 android:layout_height="27dp"
-                android:layout_marginStart="72dp"
+                android:layout_marginStart="76dp"
                 android:text="0.00"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/guideline13"
                 app:layout_constraintStart_toStartOf="@+id/guideline15"
-                app:layout_constraintTop_toTopOf="@+id/guideline14"
-                app:layout_constraintVertical_bias="0.917" />
+                app:layout_constraintTop_toTopOf="@+id/guideline2"
+                app:layout_constraintVertical_bias="0.58" />
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="52dp"
-                android:layout_marginTop="28dp"
                 android:text="$"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toTopOf="@+id/guideline13"
                 app:layout_constraintStart_toStartOf="@+id/guideline15"
-                app:layout_constraintTop_toTopOf="@+id/guideline14"
-                app:layout_constraintVertical_bias="0.901" />
+                app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline13"
@@ -65,13 +63,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_begin="74dp" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_begin="-4dp" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline15"
@@ -85,16 +76,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="188dp"
-                android:layout_marginTop="12dp"
                 android:background="#64FFDA"
                 android:clickable="true"
                 android:contentDescription="@string/app_name"
                 android:tint="@color/white"
                 app:backgroundTint="#009688"
+                app:fabSize="normal"
                 app:layout_constraintBottom_toTopOf="@+id/guideline13"
                 app:layout_constraintStart_toStartOf="@+id/guideline15"
-                app:layout_constraintTop_toTopOf="@+id/guideline14"
-                app:layout_constraintVertical_bias="0.987"
+                app:layout_constraintTop_toTopOf="@+id/guideline2"
+                app:rippleColor="@color/white"
                 app:srcCompat="@android:drawable/ic_input_add" />
 
             <Button
@@ -115,10 +106,16 @@
                 android:layout_marginEnd="20dp"
                 android:text="Total"
                 android:textSize="24sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/guideline13"
                 app:layout_constraintEnd_toStartOf="@+id/guideline15"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.267" />
+                app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="16dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
