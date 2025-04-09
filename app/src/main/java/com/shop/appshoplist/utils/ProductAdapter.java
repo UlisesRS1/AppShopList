@@ -100,6 +100,7 @@ public class ProductAdapter extends BaseAdapter {
             mostrarDialogoConfirmacion(context, () -> {
                 Product product = products.get(position);
                 viewHolder.iProductRepository.deleteProduct(product);
+                MainActivity.calculateAndSetTotal(viewHolder.iProductRepository.getAllProducts());
                 notifyDataSetChanged();
             });
         });
@@ -127,6 +128,7 @@ public class ProductAdapter extends BaseAdapter {
                     Product product = products.get(position);
                     product.setQuantity(Integer.parseInt(String.valueOf(viewHolder.edtCantidad.getText())));
                     viewHolder.iProductRepository.modifyProduct(position, product);
+                    MainActivity.calculateAndSetTotal(viewHolder.iProductRepository.getAllProducts());
                 }
             }
         });
