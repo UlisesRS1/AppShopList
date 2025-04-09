@@ -17,7 +17,7 @@
             android:id="@+id/mtToolBarChecked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
+            android:background="#009688"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme" />
 
@@ -78,6 +78,7 @@
         android:id="@+id/btnVerNoComprados"
         android:layout_width="392dp"
         android:layout_height="50dp"
+        android:backgroundTint="#009688"
         android:text="Ver no comprados"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -129,6 +130,7 @@
         android:id="@+id/btnVolverAtras"
         android:layout_width="392dp"
         android:layout_height="50dp"
+        android:backgroundTint="#009688"
         android:text="Regresar"
         app:layout_constraintBottom_toTopOf="@+id/btnVerNoComprados"
         app:layout_constraintEnd_toEndOf="parent"
