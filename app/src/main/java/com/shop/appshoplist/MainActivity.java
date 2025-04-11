@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     private Intent getToAddProduct;
     private Button btnConfirmar;
     private Intent getToPurchased;
+    private Intent getToAbout;
+    private ImageView imgAcercaDe;
     private static TextView txtTotal;
 
     @Override
@@ -49,9 +52,11 @@ public class MainActivity extends AppCompatActivity {
         this.shopList = findViewById(R.id.ltvListaDeProductos);
         this.fbtnAgregarProducto = findViewById(R.id.fbtnAgregarProducto);
         this.btnConfirmar = findViewById(R.id.btnConfirmarCompra);
+        this.imgAcercaDe = findViewById(R.id.imgAcercaDe);
         MainActivity.txtTotal = findViewById(R.id.txtValor);
         this.getToAddProduct = new Intent(this, AddProduct.class);
         this.getToPurchased = new Intent(this, ScreenPurchased.class);
+        this.getToAbout = new Intent(this, About.class);
     }
 
     public void getToAddProductScreen(){
@@ -77,12 +82,20 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.txtTotal.setText(String.valueOf(total));
     }
 
+    private void getToAbout(){
+        this.imgAcercaDe.setOnClickListener(v -> {
+            startActivity(this.getToAbout);
+            finish();
+        });
+    }
+
     public void run(){
         init();
 
         IProductRepository iProductRepository = new InMemoryProductRepository();
         this.products = iProductRepository.getAllProducts();
 
+        getToAbout();
         getToAddProductScreen();
         getToPurchased();
 

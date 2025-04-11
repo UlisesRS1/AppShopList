@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AppShopList"
         tools:targetApi="31">
         <activity
+            android:name=".About"
+            android:exported="false" />
+        <activity
             android:name=".AddProduct"
             android:exported="false" />
         <activity
@@ -21,9 +24,12 @@
         <activity
             android:name=".ScreenDidntPurchased"
             android:exported="false" />
-        <activity android:name=".ScreenPurchased" android:exported="true">
+        <activity
+            android:name=".ScreenPurchased"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
