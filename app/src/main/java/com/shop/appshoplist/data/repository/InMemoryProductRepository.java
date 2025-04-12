@@ -14,7 +14,7 @@ public class InMemoryProductRepository implements IProductRepository{
         products.add(new Product("Doritos, 120g", 13.0));
         products.add(new Product("Leche, 1L", 26.30));
         products.add(new Product("Queso Oaxaca, 140g", 24.0));
-        products.add(new Product("Perro muerto, 180g", 34.99));
+        products.add(new Product("Tortillas de harina, 2k", 34.99));
     };
 
     @Override
